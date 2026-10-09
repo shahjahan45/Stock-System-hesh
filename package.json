@@ -1,0 +1,1 @@
+{"name":"hesh-frn-operations","private":true,"scripts":{"css:build":"tailwindcss -i ./assets/css/tailwind.input.css -o ./assets/css/tailwind.generated.css --minify","css:watch":"tailwindcss -i ./assets/css/tailwind.input.css -o ./assets/css/tailwind.generated.css --watch"},"devDependencies":{"tailwindcss":"^3.4.17"}}

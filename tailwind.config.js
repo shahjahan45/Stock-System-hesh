@@ -1,0 +1,2 @@
+/** Tailwind source configuration. The checked-in app.css is production-ready; rebuild only when changing utilities. */
+module.exports={content:['./*.php','./includes/**/*.php','./auth/**/*.php','./assets/js/**/*.js'],darkMode:['selector','[data-theme="dark"]'],theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],display:['Plus Jakarta Sans','sans-serif']},colors:{brand:{DEFAULT:'#6d5dfc',soft:'#8b7fff'},app:'#edf1f7'},borderRadius:{app:'22px'},boxShadow:{neo:'10px 10px 24px rgba(163,177,198,.52), -10px -10px 24px rgba(255,255,255,.92)'}}},plugins:[]};

@@ -1,0 +1,71 @@
+/* Dedicated mobile application experience, loaded after the desktop design. */
+@media (max-width: 700px) {
+  html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+  body { min-height: 100dvh; -webkit-tap-highlight-color: transparent; }
+  .app-shell { min-height: 100dvh; }
+  .topbar { position: sticky; top: 0; z-index: 70; height: calc(68px + env(safe-area-inset-top)); padding: env(safe-area-inset-top) 14px 0; gap: 9px; background: color-mix(in srgb,var(--bg) 93%,transparent); border-bottom: 1px solid var(--line); box-shadow: 0 8px 22px rgba(15,23,42,.07); backdrop-filter: blur(22px) saturate(150%); -webkit-backdrop-filter: blur(22px) saturate(150%); }
+  .topbar .desktop-only { display: grid !important; flex: 0 0 40px; order: 0; }
+  .topbar::before { content: "HESH / FRN"; min-width: 0; flex: 1; order: 1; color: var(--text); font: 800 13px/1 "Plus Jakarta Sans",Inter,sans-serif; white-space: nowrap; }
+  .topbar::after { content: "OPS"; position: absolute; left: 63px; top: calc(39px + env(safe-area-inset-top)); color: var(--muted); font-size: 8px; font-weight: 800; letter-spacing: .16em; }
+  .topbar .search-trigger { display: none; }
+  .top-actions { margin-left: auto; gap: 8px; order: 2; }
+  .topbar .icon-btn, .topbar .avatar > span { width: 40px; height: 40px; border-radius: 13px; }
+  .topbar .avatar em { display: none; }
+  .sidebar { inset: calc(8px + env(safe-area-inset-top)) auto calc(8px + env(safe-area-inset-bottom)) 8px; width: min(86vw,310px); border: 1px solid var(--line); border-radius: 25px; padding: 18px 15px; box-shadow: 24px 0 60px rgba(10,14,25,.28),var(--shadow); transform: translateX(calc(-100% - 24px)); z-index: 105; }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-backdrop { position: fixed; inset: 0; z-index: 100; opacity: 0; visibility: hidden; background: rgba(9,13,24,.48); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transition: opacity .24s ease,visibility .24s ease; }
+  .sidebar-backdrop.open { opacity: 1; visibility: visible; }
+  body.sidebar-open { overflow: hidden; }
+  .content { width: 100%; padding: 17px 14px calc(120px + env(safe-area-inset-bottom)); }
+  .page-head { gap: 13px; margin-bottom: 17px; }
+  .page-head h1 { max-width: 100%; font-size: clamp(21px,6vw,26px); line-height: 1.16; }
+  .page-head p { font-size: 11px; line-height: 1.45; }
+  .eyebrow { font-size: 9px; letter-spacing: .14em; }
+  .page-head > .filters, .content > .filters, .card > .filters { display: flex; width: calc(100vw - 28px); max-width: 100%; flex-wrap: nowrap; gap: 9px; overflow-x: auto; padding: 3px 3px 7px; scroll-snap-type: x proximity; scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters select, .filters input, .filters .btn { flex: 0 0 auto; width: auto; min-width: 124px; min-height: 42px; scroll-snap-align: start; border: 1px solid var(--line); box-shadow: var(--small-shadow); }
+  .stats { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 11px; }
+  .stats .stat:first-child { grid-column: 1/-1; min-height: 142px; }
+  .stat { min-width: 0; min-height: 132px; padding: 15px; border: 1px solid var(--line); }
+  .stat strong { overflow-wrap: anywhere; font-size: clamp(17px,5.2vw,22px); }
+  .stat-head { gap: 7px; }
+  .stat-head > span:first-child { max-width: calc(100% - 38px); line-height: 1.3; }
+  .stat-icon { flex: 0 0 34px; }
+  .trend { display: block; line-height: 1.35; }
+  .card { border: 1px solid var(--line); }
+  .card-head { align-items: flex-start; }
+  .chart { height: 205px; overflow: hidden; }
+  .activity { grid-template-columns: 38px minmax(0,1fr) auto; }
+  .activity b, .activity small { overflow-wrap: anywhere; }
+  .mobile-nav { position: fixed !important; display: grid !important; grid-template-columns: repeat(5,minmax(0,1fr)); align-items: center; left: 12px; right: 12px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 95; height: 74px; padding: 7px 7px 6px; border: 1px solid color-mix(in srgb,var(--line) 80%,transparent); border-radius: 24px; background: color-mix(in srgb,var(--card) 94%,transparent); box-shadow: 0 14px 38px rgba(15,23,42,.22),var(--small-shadow); backdrop-filter: blur(24px) saturate(165%); -webkit-backdrop-filter: blur(24px) saturate(165%); transform: translateZ(0); }
+  .mobile-nav a { min-width: 0; min-height: 54px; border-radius: 16px; justify-content: center; gap: 5px; color: var(--muted); font-size: 9px; font-weight: 700; transition: color .18s ease,background .18s ease,transform .18s ease; }
+  .mobile-nav a:active { transform: scale(.94); }
+  .mobile-nav a.active { color: var(--primary); background: color-mix(in srgb,var(--primary) 10%,transparent); }
+  .mobile-nav a i { font-size: 18px; line-height: 1; }
+  .mobile-nav a span { display: block; white-space: nowrap; }
+  .quick-fab { align-self: center; width: 56px; height: 56px; margin: -30px auto 0; border: 5px solid var(--bg); border-radius: 19px; box-shadow: 0 10px 25px rgba(109,93,252,.45); }
+  .quick-sheet { left: 10px; right: 10px; z-index: 120; border: 1px solid var(--line); padding: 12px 18px calc(27px + env(safe-area-inset-bottom)); }
+  .quick-sheet.open { bottom: calc(8px + env(safe-area-inset-bottom)); }
+  .sheet-backdrop { z-index: 115; }
+  .quick-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+  .quick-grid a { min-width: 0; min-height: 78px; padding: 8px 5px; }
+  .form-actions { bottom: calc(94px + env(safe-area-inset-bottom)); }
+  .toast { top: calc(78px + env(safe-area-inset-top)); }
+}
+@media (max-width: 340px) {
+  .topbar { padding-left: 9px; padding-right: 9px; gap: 6px; }
+  .topbar::before { font-size: 11px; }
+  .topbar::after { left: 57px; }
+  .topbar .icon-btn, .topbar .avatar > span { width: 36px; height: 36px; }
+  .topbar .has-badge { display: none; }
+  .content { padding-left: 10px; padding-right: 10px; }
+  .stats { grid-template-columns: 1fr !important; }
+  .stats .stat:first-child { grid-column: auto; }
+  .mobile-nav { left: 7px; right: 7px; }
+  .mobile-nav a { font-size: 8px; }
+  .quick-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (display-mode: standalone) and (max-width: 700px) {
+  .topbar { padding-top: env(safe-area-inset-top); }
+  .content { padding-top: 19px; }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "./",
+  "name": "HESH & FRN Operations",
+  "short_name": "HF Ops",
+  "description": "Daily sales, raw-item receiving, stock and wastage management for HESH and FRN.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#edf1f7",
+  "theme_color": "#6d5dfc",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {"src":"assets/icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"assets/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},
+    {"src":"assets/icons/icon-maskable-512.png","sizes":"512x512","type":"image/png","purpose":"maskable"},
+    {"src":"assets/icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}
+  ],
+  "shortcuts": [
+    {"name":"Dashboard","short_name":"Dashboard","url":"dashboard.php","icons":[{"src":"assets/icons/icon-192.png","sizes":"192x192"}]},
+    {"name":"Add Daily Sales","short_name":"Sales","url":"sales.php?action=create","icons":[{"src":"assets/icons/icon-192.png","sizes":"192x192"}]},
+    {"name":"Receive Raw Item","short_name":"Receive","url":"receiving.php?action=create","icons":[{"src":"assets/icons/icon-192.png","sizes":"192x192"}]}
+  ]
+}

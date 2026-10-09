@@ -1,0 +1,1 @@
+<?php $master='suppliers';$managePermission='masters.manage';require __DIR__.'/includes/bootstrap.php';require_auth();require __DIR__.'/includes/layout.php';require __DIR__.'/includes/master-page.php';

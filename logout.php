@@ -1,0 +1,1 @@
+<?php require __DIR__.'/includes/bootstrap.php'; if(user()) audit($pdo,'logout','authentication'); clear_remember_token($pdo); session_unset(); session_destroy(); session_start(); flash('success','You have been signed out securely.'); redirect('auth/manage-admin/login/');
