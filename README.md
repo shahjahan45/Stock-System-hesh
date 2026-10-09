@@ -1,4 +1,4 @@
-# HESH & FRN Daily Operations App v1.8
+# HESH & FRN Daily Operations App v1.9
 
 Production-oriented, admin-only, mobile-first operations system for HESH and FRN across Al Hilal, Duhail, and future branches.
 
@@ -69,7 +69,9 @@ Available stock is calculated from total quantity in minus total quantity out fo
 
 The raw-item master requires only the item name and counting unit. There is no barcode, category, selling price or payment method. Receive stock by choosing date, branch, brand, raw item, quantity and unit cost. Available stock updates automatically.
 
-End-of-day sales are saved as one branch/brand summary with Total Sale, Cash, Card, Talabat, Keeta and Snoonu. Channel totals must reconcile with the entered total. The sales screen includes Today, This Month, Last Month and custom From/To date filters.
+End-of-day sales are saved as one branch/brand summary with Total Sale, Cash, Card, Talabat, Keeta and Snoonu. Channel totals must reconcile with the entered total. The dashboard calculates **Total Sales This Month** from the first day of the current month through today, using only completed, non-deleted sales. The total changes automatically at month and year boundaries; no records are reset, copied or deleted.
+
+Monthly Sales provides permanent month/year history from the same transaction records. Users can select a month, branch and brand, review full channel-level transaction details, print or save the report as PDF, and export a formula-safe UTF-8 CSV. Draft, cancelled and deleted sales are excluded consistently from dashboard and monthly reporting totals.
 
 The wastage screen remains quantity-only: choose a raw item, see its available balance and unit, enter the wasted quantity, choose a reason and save. There is no price or cost field.
 
@@ -83,7 +85,11 @@ The mobile interface is not a scaled desktop layout. Version 1.4 includes an alw
 
 Install support requires HTTPS (localhost is allowed by browsers). Icons and offline shell assets are included.
 
-Version 1.8 keeps the automatic professional installation invitation and adds an app-style Daily Sales/Receive/Raw Items navigation, remembered login, biometric access, channel-based sales entry, custom date reporting and simplified raw-item receiving. Android Chrome opens its native install window after the user taps **Install App**. iPhone/iPad users receive the required **Share → Add to Home Screen** instructions. Browsers intentionally require a user tap before installation; a website cannot silently install itself.
+Version 1.9 keeps the automatic professional installation invitation and app-style Daily Sales/Receive/Raw Items navigation, remembered login, biometric access, channel-based sales entry and simplified raw-item receiving. It adds automatic month-to-date dashboard totals and permanent month/year sales history with print/PDF and CSV export. Android Chrome opens its native install window after the user taps **Install App**. iPhone/iPad users receive the required **Share → Add to Home Screen** instructions. Browsers intentionally require a user tap before installation; a website cannot silently install itself.
+
+## Upgrading from v1.8
+
+Replace the application files with v1.9 and keep the existing `config.local.php` and database. **Do not import `database/install.sql` or a reset script during an upgrade.** This update requires no schema migration and never modifies historical sales data.
 
 ## Backups
 

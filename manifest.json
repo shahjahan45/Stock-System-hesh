@@ -2,7 +2,7 @@
   "id": "./",
   "name": "HESH & FRN Operations",
   "short_name": "HF Ops",
-  "description": "Daily sales, raw-item receiving, stock and wastage management for HESH and FRN.",
+  "description": "Monthly sales reporting, daily sales, raw-item receiving, stock and wastage management for HESH and FRN.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -20,6 +20,7 @@
   "shortcuts": [
     {"name":"Dashboard","short_name":"Dashboard","url":"dashboard.php","icons":[{"src":"assets/icons/icon-192.png","sizes":"192x192"}]},
     {"name":"Add Daily Sales","short_name":"Sales","url":"sales.php?action=create","icons":[{"src":"assets/icons/icon-192.png","sizes":"192x192"}]},
-    {"name":"Receive Raw Item","short_name":"Receive","url":"receiving.php?action=create","icons":[{"src":"assets/icons/icon-192.png","sizes":"192x192"}]}
+    {"name":"Receive Raw Item","short_name":"Receive","url":"receiving.php?action=create","icons":[{"src":"assets/icons/icon-192.png","sizes":"192x192"}]},
+    {"name":"Monthly Sales","short_name":"Monthly","url":"monthly-sales.php","icons":[{"src":"assets/icons/icon-192.png","sizes":"192x192"}]}
   ]
 }

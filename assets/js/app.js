@@ -4,7 +4,7 @@ if(!document.querySelector('link[rel="apple-touch-icon"]')){const appleIcon=docu
 [['apple-mobile-web-app-capable','yes'],['apple-mobile-web-app-status-bar-style','black-translucent'],['apple-mobile-web-app-title','HF Ops']].forEach(([name,content])=>{if(!document.querySelector(`meta[name="${name}"]`)){const meta=document.createElement('meta');meta.name=name;meta.content=content;document.head.appendChild(meta)}});
 const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
 const escapeHtml=value=>String(value??'').replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
-const icons={menu:'☰',search:'⌕',moon:'◐',bell:'♢',grid:'▦',pulse:'∿',receipt:'▤',inbox:'⇩',minus:'−',trash:'♲',swap:'⇄',boxes:'▥',package:'⬡',tag:'◇',pin:'⌖',layers:'▱',truck:'▰',users:'♟',chart:'⌁',shield:'◆',history:'↶',settings:'⚙',user:'●',logout:'↪',plus:'＋',sliders:'≋',arrow:'→',fingerprint:'◎',cash:'◉',card:'▰'};
+const icons={menu:'☰',search:'⌕',moon:'◐',bell:'♢',grid:'▦',pulse:'∿',receipt:'▤',inbox:'⇩',minus:'−',trash:'♲',swap:'⇄',boxes:'▥',package:'⬡',tag:'◇',pin:'⌖',layers:'▱',truck:'▰',users:'♟',chart:'⌁',shield:'◆',history:'↶',settings:'⚙',user:'●',logout:'↪',plus:'＋',sliders:'≋',arrow:'→',fingerprint:'◎',cash:'◉',card:'▰',download:'⇩',printer:'▣'};
 $$('[data-icon]').forEach(el=>el.textContent=icons[el.dataset.icon]||'•');
 const sidebar=$('#sidebar');
 const sidebarBackdrop=document.createElement('div');sidebarBackdrop.className='sidebar-backdrop';document.body.appendChild(sidebarBackdrop);

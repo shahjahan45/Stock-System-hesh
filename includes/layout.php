@@ -5,9 +5,9 @@ function render_header(string $title, string $active='dashboard'): void { global
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#6d5dfc"><title><?=e($title)?> · <?=e($config['app']['name'])?></title>
 <link rel="manifest" href="<?=app_url('manifest.json')?>"><link rel="icon" href="<?=app_url('assets/icons/icon.svg')?>">
-<link rel="stylesheet" href="<?=app_url('assets/css/app.css?v=1.8.0')?>">
-<link rel="stylesheet" href="<?=app_url('assets/css/mobile.css?v=1.8.0')?>">
-<link rel="stylesheet" href="<?=app_url('assets/css/v17.css?v=1.8.0')?>">
+<link rel="stylesheet" href="<?=app_url('assets/css/app.css?v=1.9.0')?>">
+<link rel="stylesheet" href="<?=app_url('assets/css/mobile.css?v=1.9.0')?>">
+<link rel="stylesheet" href="<?=app_url('assets/css/v17.css?v=1.9.0')?>">
 <script>window.APP_URL=<?=json_encode($config['app']['url'])?>;try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'light'}catch(e){}</script></head>
 <body><div class="app-shell">
 <aside class="sidebar" id="sidebar"><a class="brand" href="<?=app_url('dashboard.php')?>"><span class="brand-mark">HF</span><span><b>HESH / FRN</b><small>Operations Suite</small></span></a>
@@ -17,7 +17,7 @@ function render_header(string $title, string $active='dashboard'): void { global
 'DAILY OPERATIONS'=>[['sales','sales.php','receipt','Daily Sales'],['receiving','receiving.php','inbox','Received Stock'],['wastage','wastage.php','trash','Wastage']],
 'STOCK'=>[['inventory','inventory.php','boxes','Available Stock'],['products','products.php','package','Raw Items']],
 'SETUP'=>[['branches','branches.php','pin','Branches'],['brands','brands.php','layers','Brands'],['users','users.php','shield','Users & Roles']],
-'REPORTING'=>[['reports','reports.php','chart','Reports'],['audit','audit-logs.php','history','Audit Logs']],
+'REPORTING'=>[['monthly-sales','monthly-sales.php','receipt','Monthly Sales'],['reports','reports.php','chart','Reports'],['audit','audit-logs.php','history','Audit Logs']],
 'ACCOUNT'=>[['settings','settings.php','settings','Settings'],['profile','profile.php','user','Profile']]
 ]; foreach($groups as $label=>$items): ?><span class="nav-label"><?=e($label)?></span><?php foreach($items as [$key,$href,$icon,$text]): ?><a class="nav-item <?=$active===$key?'active':''?>" href="<?=app_url($href)?>"><i data-icon="<?=$icon?>"></i><span><?=e($text)?></span></a><?php endforeach; endforeach; ?></nav>
 <a class="logout" href="<?=app_url('logout.php')?>"><i data-icon="logout"></i><span>Sign out</span></a></aside>
@@ -29,4 +29,4 @@ function render_footer(string $active='dashboard'): void { ?>
 <nav class="mobile-nav"><a class="<?=$active==='dashboard'?'active':''?>" href="<?=app_url('dashboard.php')?>"><i data-icon="grid"></i><span>Home</span></a><a class="<?=$active==='receiving'?'active':''?>" href="<?=app_url('receiving.php?action=create')?>"><i data-icon="inbox"></i><span>Receive</span></a><a class="quick-fab <?=$active==='sales'?'active':''?>" href="<?=app_url('sales.php?action=create')?>"><i data-icon="receipt"></i><span>Sales</span></a><a class="<?=$active==='products'?'active':''?>" href="<?=app_url('products.php')?>"><i data-icon="package"></i><span>Items</span></a><a class="<?=$active==='profile'?'active':''?>" href="<?=app_url('profile.php')?>"><i data-icon="user"></i><span>Profile</span></a></nav>
 <div class="sheet-backdrop" data-sheet-close></div><section class="quick-sheet"><div class="sheet-handle"></div><h2>Quick entry</h2><div class="quick-grid"><a href="<?=app_url('sales.php?action=create')?>"><i data-icon="receipt"></i>Daily Sales</a><a href="<?=app_url('receiving.php?action=create')?>"><i data-icon="inbox"></i>Receive Raw Item</a><a href="<?=app_url('products.php?action=create')?>"><i data-icon="package"></i>Add Raw Item</a><a href="<?=app_url('wastage.php')?>"><i data-icon="trash"></i>Wastage</a><a href="<?=app_url('inventory.php')?>"><i data-icon="boxes"></i>Available Stock</a><a href="<?=app_url('inventory.php?action=adjust')?>"><i data-icon="sliders"></i>Adjustment</a></div></section>
 <div class="command" hidden><div class="command-box"><input placeholder="Search products, references, people…" autofocus><div class="command-results"><p>Start typing to search the system.</p></div></div></div>
-<script src="<?=app_url('assets/js/app.js?v=1.8.0')?>"></script></body></html><?php }
+<script src="<?=app_url('assets/js/app.js?v=1.9.0')?>"></script></body></html><?php }

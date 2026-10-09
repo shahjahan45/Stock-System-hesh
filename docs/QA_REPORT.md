@@ -1,11 +1,12 @@
-# QA Report — v1.8 Daily Sales & Raw-Item Operations
+# QA Report — v1.9 Monthly Sales & Raw-Item Operations
 
-Date: 8 October 2026  
+Date: 9 October 2026  
 Target: PHP 8.3+, MySQL 8+, Apache, desktop/tablet/mobile browsers
 
 ## Automated package checks
 
 - JavaScript syntax: passed with Node syntax validation.
+- Monthly boundary/status regression suite: passed (empty month, accumulation, month isolation, preserved history, leap year and excluded statuses).
 - PWA manifest JSON: parsed successfully.
 - Backup shell script: Bash syntax passed.
 - Required configuration, schema, route, asset, documentation and module files: present.
@@ -43,6 +44,12 @@ Target: PHP 8.3+, MySQL 8+, Apache, desktop/tablet/mobile browsers
 - Daily sales stores total, Cash, Card, Talabat, Keeta and Snoonu amounts without product-level selling prices or payment-method dropdowns.
 - Daily sales rejects an unbalanced channel split and prevents duplicate branch/brand summaries for the same date.
 - Sales history includes Today, This Month, Last Month and custom From/To filters.
+- Dashboard sales totals use the current Qatar-calendar month from its first day through today.
+- Month-to-date dashboard totals include only completed, non-deleted sales and return zero when no rows match.
+- Monthly Sales accepts a validated month/year and derives the final calendar day automatically, including leap years and year boundaries.
+- Monthly Sales exposes the complete Cash, Card, Talabat, Keeta and Snoonu breakdown and matching transactions.
+- Month changes require no scheduled or manual reset; historical sales rows remain untouched and reports are always calculated from transaction dates.
+- Monthly Sales print/PDF and formula-safe UTF-8 CSV export use the same completed-sales filters shown on screen.
 - Remembered login uses a random selector/validator token, stores only its SHA-256 hash, rotates the validator after use and uses an HttpOnly SameSite cookie.
 - Logout revokes the current remembered-login token.
 
@@ -70,11 +77,13 @@ Run these after importing the database on the target PHP/MySQL server:
 2. Add Beef with unit kg and Cauliflower with unit piece.
 3. Receive raw stock with branch, brand, quantity and unit cost; verify available stock.
 4. Add an end-of-day sales summary and confirm the channel split must equal Total Sale.
-5. Test Today, Last Month and custom sales date filters.
-6. Test **Keep me signed in**, close the browser, reopen it and confirm the session restores without credentials.
-7. Test each role with an assigned branch and confirm mutation permissions.
-8. Export reports, print to PDF and test phone layouts at 360, 390 and 430 px widths.
-9. Install the PWA over HTTPS, confirm standalone launch and re-test biometric unlock.
-10. Configure outbound email before enabling emailed password-reset links.
+5. Verify the dashboard total equals all completed sales from the first of the current month through today.
+6. Select a month with no sales and confirm all totals are zero; then select a previous month and confirm its transactions and totals are unchanged.
+7. Test a February leap year, a December-to-January transition, and excluded draft/cancelled rows.
+8. Test **Keep me signed in**, close the browser, reopen it and confirm the session restores without credentials.
+9. Test each role with an assigned branch and confirm mutation permissions.
+10. Export monthly sales, print to PDF and test phone layouts at 360, 390 and 430 px widths.
+11. Install the PWA over HTTPS, confirm standalone launch and re-test biometric unlock.
+12. Configure outbound email before enabling emailed password-reset links.
 
 PHP CLI was not available in the packaging workspace, so final PHP runtime lint and browser/database integration should be run on the target PHP 8.3 environment using the acceptance steps above.

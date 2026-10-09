@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     }
 }
 $passkeyCount=(int)$pdo->query('SELECT COUNT(*) FROM webauthn_credentials WHERE revoked_at IS NULL')->fetchColumn();
-?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#6d5dfc"><title>Unlock · HESH / FRN</title><link rel="manifest" href="<?=app_url('manifest.json')?>"><link rel="stylesheet" href="<?=app_url('assets/css/app.css?v=1.8.0')?>"><link rel="stylesheet" href="<?=app_url('assets/css/mobile.css?v=1.8.0')?>"><link rel="stylesheet" href="<?=app_url('assets/css/v17.css?v=1.8.0')?>"><script>window.APP_URL=<?=json_encode($config['app']['url'])?>;</script></head>
+?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#6d5dfc"><title>Unlock · HESH / FRN</title><link rel="manifest" href="<?=app_url('manifest.json')?>"><link rel="stylesheet" href="<?=app_url('assets/css/app.css?v=1.9.0')?>"><link rel="stylesheet" href="<?=app_url('assets/css/mobile.css?v=1.9.0')?>"><link rel="stylesheet" href="<?=app_url('assets/css/v17.css?v=1.9.0')?>"><script>window.APP_URL=<?=json_encode($config['app']['url'])?>;</script></head>
 <body class="auth-page biometric-auth"><main class="auth-card biometric-card">
 <div class="auth-brand"><span class="brand-mark">HF</span><div><b>HESH / FRN</b><small>Stock & Wastage App</small></div></div>
 <div class="biometric-visual"><span class="biometric-ring"><i data-icon="fingerprint"></i></span><span class="secure-dot"></span></div>
@@ -30,4 +30,4 @@ $passkeyCount=(int)$pdo->query('SELECT COUNT(*) FROM webauthn_credentials WHERE 
 <label class="remember-check"><input type="checkbox" name="remember_me" value="1" checked><span><b>Keep me signed in</b><small>Do not ask for username and password on this device for 30 days.</small></span></label>
 <button class="btn" type="submit">Continue secure setup</button></form><a class="recovery-link" href="<?=app_url('auth/manage-admin/forgot-password/')?>">Forgot recovery password?</a></details>
 <div class="auth-meta"><span>Device-protected access</span><span>HTTPS required</span></div>
-</main><script src="<?=app_url('assets/js/app.js?v=1.8.0')?>"></script></body></html>
+</main><script src="<?=app_url('assets/js/app.js?v=1.9.0')?>"></script></body></html>
